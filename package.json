@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "blueimp-file-upload": "^9.28.0",
-    "bootstrap": "3.4.0",
+    "bootstrap": "3.4.1",
     "cloudinary-jquery-file-upload": "^2.6.2",
     "easytimer": "^1.1.1",
     "easytimer.js": "^3.0.1",
