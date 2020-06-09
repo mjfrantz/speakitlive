@@ -1,0 +1,24 @@
+<div class="lesson-wrapper">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="new_lesson">
+        <div class="info">
+          <div class="info-label"><strong>New Lesson</strong></div>
+        </div>
+        <%= simple_form_for([@course, @lesson], wrapper: :inline_form, html: { class: 'new-lesson-form form-inline' }) do |f| %>
+        <div>
+          <p>Conversation topic</p>
+          <%= f.input_field :learning_goal %>
+        </div>
+        <div>
+          <p>Target time (seconds)</p>
+          <%= f.input_field :time_goal %>
+        </div>
+        <div>
+          <%= f.submit class: "btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

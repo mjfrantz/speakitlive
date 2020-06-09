@@ -1,0 +1,21 @@
+<div style="background-color: #F8F8FF;">
+  <% @lesson.student_time_trials(current_student).each_with_index do | trial, index | %>
+    <% if trial.completed %>
+      <% trial.mistakes.each_with_index do | mistake, index | %>
+        <div class="mistake-row">
+          <div class="mistake-info">
+            <div class="mistake-category">
+              <div class="mistake-label">Mistake</div>
+              <h4><%= mistake.category.capitalize %></h4>
+            </div>
+            <div class="mistake-time">
+              <p>at <%= (mistake.created_at - trial.started_at).round(2) %> seconds</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+

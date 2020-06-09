@@ -1,0 +1,9 @@
+<h3>Feedback</h3>
+<table>
+  <% @time_trial.mistakes.each do | mistake | %>
+  <tr>
+    <td class="td-left" style="width: 8rem; padding-right: 0px;"><%= mistake.seconds.round %> sec</td>
+    <td><strong><%= mistake.category %></strong></td>
+  </tr>
+<% end %>
+</table>

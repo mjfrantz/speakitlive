@@ -1,0 +1,110 @@
+
+.table-wrapper {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.no-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+
+
+.lesson-wrapper {
+  background: #F8F8FF;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 2px rgba(100,100,100,0.3);
+
+  .info {
+     margin-top: 15px;
+    .info-label {
+      margin-right: 10px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  }
+}
+
+.course-wrapper {
+  border-bottom: solid 2px rgba(100,100,100,0.3);
+  padding-left: 50px;
+}
+
+.lesson-wrapper .row {
+  display: flex;
+  align-items: center;
+}
+
+.lesson-wrapper .small-icon {
+  height: 20px;
+}
+
+.lesson-wrapper .btn-primary {
+  margin-top: 20px;
+}
+
+.lesson-wrapper p {
+  margin: 0;
+}
+
+.lesson-wrapper .btn-primary {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.teacher-wrapper .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.teacher-wrapper {
+  margin-top: 4em;
+  border-radius: 10px 10px 0px 0px;
+  // background: #134E5E;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+  padding: 20px;
+}
+
+.teacher-wrapper h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+}
+.teacher-wrapper .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.teacher-wrapper .avatar {
+  width: 80px;
+  height: 80px;
+  margin-left: 30px;
+}
+
+.teacher-wrapper .name {
+  color: white;
+
+}
+
+.student-info-lesson {
+  padding-left: 45px;
+}
+
+.student-info-lesson-number {
+  padding-left: 33px;
+}

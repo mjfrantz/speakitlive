@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    <% @lesson.student_time_trials(student).each_with_index do | trial, index | %>
+      <div class="student-show-row <%= 'even' if index.even?  %>">
+        <div class="student-show-row-item student-show-row-lesson-number">
+          <%= index += 1 %>
+        </div>
+        <div class="student-show-row-item student-show-row-name">
+          <%= image_tag trial.attendance_a.student.photo_url, class: "avatar", alt: "avatar" %>
+          <%= trial.attendance_a.student.first_name %> <%= trial.attendance_a.student.last_name %>
+        </div>
+        <div class="student-show-row-item student-show-row-and">
+          and
+        </div>
+        <div class="student-show-row-item student-show-row-name">
+          <%= image_tag trial.attendance_b.student.photo_url, class: "avatar", alt: "avatar" %>
+          <%= trial.attendance_b.student.first_name %> <%= trial.attendance_b.student.last_name %>
+        </div>
+        <div class="student-show-row-item student-show-row-complete">
+          <% if trial.completed %>
+            Conversation complete
+          <% else %>
+            <%= link_to 'Start round'.html_safe, lesson_time_trial_path(@lesson, trial)%>
+          <% end %>
+        </div>
+        <div class="student-show-row-item student-show-row-audio">
+          <% if trial.audio.file %>
+            <%= audio_tag trial.audio, controls: true %>
+          <% else %>
+            No audio file uploaded
+          <% end %>
+        </div>
+      </div>
+      <%= render 'layouts/time_trial_mistakes', student: current_student %>
+    <% end %>
+  </div>
+</div>

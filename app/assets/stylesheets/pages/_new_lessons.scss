@@ -1,0 +1,49 @@
+.new_lesson {
+  h1 {
+    font-size: 32px;
+  }
+  max-width: 700px;
+}
+
+.new-lesson-form {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  // background-color:pink;
+  padding-top: 10px;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  }
+
+  .btn-primary {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size:0.9em;
+  }
+}
+
+// .new_lesson {
+//   background-color: pink;
+// }
+
+
+
+@media only screen and (max-width: 600px) {
+.new-lesson-form {
+  padding:10px 0;
+  // background-color:blue;
+  flex-flow: column nowrap;
+  justify-content:center;
+  div {
+    align-self: center;
+    .btn-primary {
+      margin:10px;
+    }
+  }
+}
+}

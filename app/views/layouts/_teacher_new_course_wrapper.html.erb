@@ -1,0 +1,28 @@
+<div class="lesson-wrapper">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="info">
+        <div class="info-label"><strong>New Course</strong></div>
+      </div>
+      <div style="width: 100%;">
+      <%= simple_form_for([@course], wrapper: :inline_form, html: { class: 'new-lesson-form form-inline' }) do |f| %>
+        <div class="school-search">
+          <p>School</p>
+          <%= f.input_field :school %>
+        </div>
+        <div class="coursename-search">
+          <p>Course name</p>
+          <%= f.input_field :name %>
+        </div>
+        <div class="coursedescription-search">
+          <p>Course description</p>
+          <%= f.input_field :description %>
+        </div>
+        <div class="createcourse-butoon">
+          <%= f.submit class: "btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

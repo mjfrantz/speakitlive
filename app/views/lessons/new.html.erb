@@ -1,0 +1,25 @@
+<div class="container new_lesson">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+    <h1>Create a New Lesson</h1>
+      <%= simple_form_for([@course, @lesson]) do |f| %>
+        <%= f.input :learning_goal %>
+        <%= f.input :time_goal %>
+        <%= f.submit class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row" style="margin-top: 20px;">
+      <div class="col-sm-4">
+        <div class="new-lesson">
+        <h3>Create a New Lesson</h3>
+          <%= simple_form_for([@course, @lesson]) do |f| %>
+            <%= f.input :learning_goal %>
+            <%= f.input :time_goal %>
+            <%= f.submit "Create a Lesson", class: "btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div> -->

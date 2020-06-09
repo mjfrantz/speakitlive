@@ -1,0 +1,17 @@
+.footer {
+   margin-top:30px;
+   position:fixed;
+   left:0;
+   bottom:0;
+   width:100%;
+   height:40px;
+   overflow: hidden;   /* Height of the footer */
+   background: $blackboard;
+   color: white;
+   p {
+    text-align: right;
+    font-size:0.8em;
+    margin-top:10px;
+    margin-right:20px;
+   }
+}

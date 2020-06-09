@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="table-wrapper">
+      <%= render 'layouts/user_wrapper' %>
+      <%= render 'layouts/user_course_wrapper' %>
+      <div class="course-show-row-item row no-margin">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="course-show-row title-row">
+              <div class="course-show-row-item course-show-row-lesson-number">
+                <h5>Lesson</h5>
+              </div>
+              <div class="course-show-row-item course-show-row-date">
+                <h5>Date</h5>
+              </div>
+              <div class="course-show-row-item course-show-row-learning-goal">
+                <h5>Learning Goal</h5>
+              </div>
+              <div class="course-show-row-item course-show-row-status">
+                <h5>Status</h5>
+              </div>
+              <div class="course-show-row-item course-show-row-action">
+              </div>
+            </div>
+            <% @course.lessons.each_with_index do | l, i| %>
+            <div class="course-show-row <%= 'even' if i.even? %>">
+              <div class="course-show-row-item course-show-row-lesson-number text-left">
+                <%= i += 1 %>
+              </div>
+              <div class="course-show-row-item course-show-row-date">
+                <%= l.start_time.strftime('%A, %b %d, %Y') %>
+              </div>
+              <div class="course-show-row-item course-show-row-learning-goal">
+                <%= l.learning_goal %>
+              </div>
+              <% if l.completed == true %>
+              <div class="course-show-row-item course-show-row-status" style="color:#32B796;">Complete</div>
+              <% elsif l.completed == false %>
+              <div class="course-show-row-item course-show-row-status" style="color: #EE5F5B;">In Progress</div>
+              <% end %>
+              <% if student_signed_in? && l.completed == false %>
+              <div class="course-show-row-item course-show-row-action">
+                <%= simple_form_for [l, Attendance.new] do |f| %>
+                <%= button_tag type: :submit, class: "btn-2" do %>
+                Attend
+                <% end %>
+                <% end %>
+              </div>
+              <div class="course-show-row-item course-show-row-action">
+                <%= link_to "See Homework", lesson_homeworks_path(l) %>
+              </div>
+              <% elsif current_teacher && l.completed == false %>
+              <div class="course-show-row-action"><%= link_to '<i class="fas fa-arrow-right"></i>'.html_safe,
+                lesson_homeworks_path(l) %></div>
+              <% else %>
+              <div class="course-show-row-action"></div>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+
+

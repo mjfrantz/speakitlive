@@ -1,0 +1,13 @@
+<div class="container new_lesson">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+    <h1>Create a New Lesson</h1>
+      <%= simple_form_for @course do |f| %>
+        <%= f.input :school %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.submit class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

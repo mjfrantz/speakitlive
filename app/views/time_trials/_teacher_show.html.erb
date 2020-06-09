@@ -1,0 +1,116 @@
+<div class="row row-eq-height">
+  <div class="col-sm-8 time-trial-columns">
+    <div class="student-show-header">
+      <div class="header-student">
+        <div class="header-student-avatar">
+          <%= cl_image_tag @time_trial.attendance_a.student.photo, class: "avatar" %>
+        </div>
+        <div class="header-student-fullname">
+          <div class="header-student-first-name">
+            <%= @time_trial.attendance_a.student.first_name %>
+          </div>
+          <div class="header-student-last-name">
+            <%= @time_trial.attendance_a.student.last_name.upcase %>
+          </div>
+        </div>
+      </div>
+      <div class="header-student">
+        <div class="header-student-fullname">
+          <div class="header-student-first-name">
+            <%= @time_trial.attendance_b.student.first_name %>
+          </div>
+          <div class="header-student-last-name">
+            <%= @time_trial.attendance_b.student.last_name.upcase %>
+          </div>
+        </div>
+        <div class="header-student-avatar">
+          <%= cl_image_tag @time_trial.attendance_b.student.photo, class: "avatar" %>
+        </div>
+      </div>
+    </div>
+    <div class="student-show-subheader normal-font">
+      <%= @time_trial.lesson.learning_goal %> for <span id="seconds-goal"><%= @time_trial.lesson.time_goal %></span> seconds
+    </div>
+    <div id="chronoExample">
+      <div class="values" style="font-size: 4em;"><%= @time_trial.seconds ?
+      "00:#{@time_trial.seconds}" : '00:00' %></div>
+      <!-- <div style="margin-top: 2em;"> -->
+      <div>
+        <% unless @time_trial.seconds %>
+          <button class="startButton" ><i class="far fa-play-circle"></i></button>
+        <% end %>
+          <button class="stopButton" style="display:none"><i class="far fa-stop-circle"></i></button>
+      </div>
+    </div>
+      <%# If time trial has audio, then add the seconds to the time trial, save it and redirect to the lesson show page %>
+    <div class="timer-action-buttons">
+      <%= button_to reset_trial_path(@time_trial), method: :patch, class: "restartButton" do %>
+        Restart <i class="fas fa-sync-alt"></i>
+      <% end %>
+      <%= simple_form_for([@time_trial.lesson, @time_trial], html: { id: 'time-trial-seconds'}) do |f| %>
+        <%= f.hidden_field :seconds %>
+        <%= f.submit "Finish", class: "btn btn-primary", style: "margin: 0;" %>
+      <% end %>
+
+      <%# form to submit when we just push the stop button %>
+
+    </div>
+    <div class="forms-for-js-trigger">
+      <!-- TODO: Is this needed anymore? -->
+      <%= simple_form_for([@time_trial.lesson, @time_trial], method: :patch, url: update_seconds_path(@time_trial), html: { id: 'time-trial-update-seconds'}) do |f| %>
+        <%= f.hidden_field :seconds %>
+        <%= button_tag "", style: "display:none;" %>
+      <% end %>
+
+      <%#= simple_form_for(@time_trial, html: { id: 'time-trial-start', url: time_trial_start_path, remote: true, method: :post }) do |f| %>
+
+
+      <%= simple_form_for([@time_trial, Mistake.new(time_trial_id: params[:id])], html: { id: 'time-trial-mistake'}, remote: true) do |f| %>
+        <%= f.hidden_field :category %>
+        <%= f.hidden_field :seconds %>
+        <%= f.hidden_field :time_trial_id, value: @time_trial.id %>
+        <%= button_tag "", style: "display:none;" %>
+      <% end %>
+
+      <%= hidden_field_tag 'time-trial-current-time', @time_trial.seconds %>
+    </div>
+
+</div>
+<div class="col-sm-4 time-trial-columns" style="margin-left: 70px;">
+   <h3>Keys</h3>
+      <ul>
+      <li><strong>[ C ]</strong> - content</li>
+      <li><strong>[ G ]</strong> - grammar</li>
+      <li><strong>[ P ]</strong> - pronunciation</li>
+      <li><strong>[ S ]</strong> - silence</li>
+      <li><strong>[ W ]</strong> - word choice</li>
+      </ul>
+  <div id="card-feedback">
+
+    <%= render 'mistakes/index' %>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    App['time_trial_<%= @time_trial.id %>'] =
+      App.cable.subscriptions.create(
+        { channel: 'TimeTrialsChannel', time_trial_id: <%= @time_trial.id %> },
+        { received: (data) => {
+          console.log(data)
+          if (data.recording_started === true) {
+            document.querySelector('.startButton').click();
+          } else if (data.recording_stopped === true) {
+            document.querySelector('.stopButton').click();
+          } else if (data.recording_finished === true) {
+            const audioElement = new Audio(data.audio_url)
+            audioElement.controls = true;
+            document.querySelector('.stopButton').insertAdjacentElement('afterend', audioElement)
+            document.querySelector('.stopButton').innerHTML = ""
+          } else if (data.recording_restarted === true) {
+            location.reload();
+          }
+        }}
+    )
+  </script>
+<% end %>

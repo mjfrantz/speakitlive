@@ -1,0 +1,95 @@
+/* Main navbar */
+
+.navbar-speakit_live {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+    background: white;
+    transition: all 0.3s ease;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 15px;
+  }
+
+  /* Logo */
+.navbar-speakit_live-brand img {
+   width: 160px;
+}
+
+
+  /* User Avatar */
+  .navbar-speakit_live .avatar {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
+
+  /* Right section */
+  .navbar-speakit_live-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:0.8em;
+    a {
+      color: $blackboard;
+    }
+    a:hover {
+      opacity: 0.8;
+      text-decoration: none;
+    }
+  }
+
+  /* Basic navbar item */
+  .navbar-speakit_live-item {
+    cursor: pointer;
+    padding: 0 20px;
+    a {
+      color: $blackboard;
+    }
+  }
+
+
+// .footer {
+//    margin-top:30px;
+//    position:fixed;
+//    left:0;
+//    bottom:0;
+//    width:100%;
+//    height:40px;
+//    overflow: hidden;   /* Height of the footer */
+//    background:#3B686E;
+//    color: white;
+//    p {
+//     text-align: right;
+//     font-size:0.8em;
+//     margin-top:10px;
+//     margin-right:20px;
+//    }
+// }
+
+
+
+.navbar-icon {
+  width:25px;
+}
+
+
+.navbar-icon-link {
+  display:flex;
+  flex-direction: column;
+  margin-right: 15px;
+  align-items:center;
+  small {
+    font-size:75%;
+    color: $blackboard;
+  }
+}
+
+.navbar-wagon-dropdown-menu {
+  font-size: 0.8em;
+}
+
+.navbar-icon-link:first-child {
+  padding-right: 15px;
+  border-right: 1px solid $orange;
+}

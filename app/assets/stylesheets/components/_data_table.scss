@@ -1,0 +1,163 @@
+.course-show-row {
+    display: flex;
+    justify-content: space-between;
+    // font-size: 12px;
+    vertical-align: center;
+  align-items: center;
+  border-bottom: solid 2px rgba(136, 135, 135, 0.521);
+  padding: 10px;
+    .course-show-row-lesson-number {
+        width: 13%;
+    }
+    .course-show-row-date {
+        width: 25%;
+    }
+    .course-show-row-status {
+        width: 16%;
+    }
+    .course-show-row-action {
+        width: 15%;
+    }
+    .course-show-row-learning-goal {
+        flex-grow: 1;
+    }
+}
+
+.course-index-row {
+    display: flex;
+    justify-content: space-between;
+    // font-size: 12px;
+    vertical-align: center;
+  align-items: center;
+  border-bottom: solid 2px rgba(136, 135, 135, 0.521);
+  padding: 10px;
+  margin: 0;
+  color: black;
+  text-decoration: none;
+  .col-md-1 {
+    text-align: center;
+  }
+}
+
+.no-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.even {
+    background-color: #ececea;
+  }
+
+.new_lesson {
+    .title {
+        margin-top: 50px;
+    }
+}
+
+// .title-row {
+//     font-weight: bolder;
+// }
+
+.student-show-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  vertical-align: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 10px;
+
+}
+
+
+.student-show-row-audio {
+  min-width: 300px;
+}
+
+.mistake-row {
+  display: flex;
+  align-items: center;
+  background-color: #F8F8FF;
+  border-top: solid 2px rgba(255,255,255,0.3);
+  border-bottom: solid 2px rgba(100,100,100,0.3);
+  padding-bottom: 20px;
+}
+
+.mistakes-header {
+  border-bottom: solid 2px rgba(100,100,100,0.3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  p {
+    font-size: 14px;
+  }
+}
+
+.homework-header h4 {
+  margin-bottom: 0px;
+}
+
+
+.mistake-label {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+
+.mistake-info {
+  display: flex;
+  // flex: 0 0 25%;
+  flex-direction: column;
+  height: 154px;
+  width: 300px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+}
+
+.mistake-info p {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.mistake-info h4 {
+  margin-bottom: 0px;
+  font-weight: bolder;
+}
+
+.mistake-student-box {
+  // display: flex;
+  // // flex: 0 0 75%;
+  // align-items: center;
+  // justify-content: center;
+  padding-top: 20px;
+  margin-right: 30px;
+}
+
+.student-comment {
+  width: 400px;
+  margin-right: 30px;
+  min-height: 154px;
+  margin-top: 20px;
+}
+
+.student-comment-content {
+  margin-top: 15px;
+}
+
+.homework-header {
+  margin-right: 30px;
+}
+
+#homework-submit-all {
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.comment-box {
+  margin-top: 15px;
+}
+

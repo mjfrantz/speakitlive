@@ -1,0 +1,23 @@
+<div class="teacher-wrapper">
+  <div class="row">
+    <div class="col-xs-2">
+      <% if teacher_signed_in? %>
+        <%= image_tag current_teacher.photo_url, class: "avatar", alt: "avatar" %>
+      <% elsif student_signed_in? %>
+        <%= image_tag current_student.photo_url, class: "avatar", alt: "avatar" %>
+      <% end %>
+    </div>
+    <div class="col-xs-4 name">
+      <% if teacher_signed_in? %>
+        <h3><%= current_teacher.first_name %> <%= current_teacher.last_name %></h3>
+      <% elsif student_signed_in? %>
+        <h3><%= current_student.first_name %> <%= current_student.last_name %></h3>
+      <% end %>
+    </div>
+    <div class="col-xs-4">
+
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+</div>

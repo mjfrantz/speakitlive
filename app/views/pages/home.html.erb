@@ -1,0 +1,22 @@
+<div class="banner">
+  <div class="row" style="padding: 0 20px">
+  <h2>Capture classroom conversations with ease</h2>
+
+  <p>Improve student fluency through improvised timed conversations</p>
+  <p>Give real-time feedback on student mistakes</p>
+  <p>Capture and save audio for reflective homework assignments</p>
+  </div>
+</div>
+
+
+<div class="container1">
+
+  <h2 class="landing_page">Enter your email to receive updates</h2>
+<div class="container2">
+  <%= simple_form_for(@interested_user) do |f| %>
+    <%= f.input :email, as: :email %>
+    <%= f.submit "Register your interest", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
+

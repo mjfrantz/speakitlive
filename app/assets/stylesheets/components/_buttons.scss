@@ -1,0 +1,94 @@
+#recordButton {
+  // width: 8em;
+  // height: 3em;
+  // margin-top: 38px;
+  // margin-right: 2em;
+  // margin-bottom: 1em;
+  // margin-top: 38px;
+  background-color: $blackboard;
+  color: white;
+  border-radius: 50%;
+  padding: 0 30px;
+  width: 140px;
+  height: 140px;
+}
+
+// #pauseButton {
+//   width: 8em;
+//   height: 3em;
+//   margin-right: 2em;
+// }
+
+#stopButton {
+  // width: 8em;
+  // height: 3em;
+  background-color: $red;
+  color: white;
+  border-radius: 50%;
+  padding: 0 30px;
+  width: 140px;
+  height: 140px;
+  font-size: 0.7em;
+}
+#restart-recording {
+  color: $blackboard;
+  font-size: 0.8em;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-medium {
+  color: #FF291A;
+  border: 2px solid #FF291A;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+
+
+.btn-primary {
+  background: #296A70;
+  margin-top: 20px;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: #red !important;
+}
+
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #FF291A;
+}
+
+.btn-2 {
+//   color: white;
+//   padding: 10px 15px;
+  border-radius: 4px;
+  border-style: none;
+//   font-weight: bold;
+//   background: #FF291A;
+//   transition: background 0.3s ease;
+}
+// .btn-2:hover {
+//   opacity: 1;
+//   background: #FF291A;
+//   text-decoration: none;
+//   color: white;
+// }
+
+li {
+  text-align: center;
+}
+
+.clicked {
+  color: black;
+  background-color: red;
+}
+
+#loading-spinner {
+  font-size: 2em;
+}

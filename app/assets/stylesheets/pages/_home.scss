@@ -1,0 +1,123 @@
+// Specific CSS for your home-page
+
+.banner {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('chalkboard.jpg');
+    color: white;
+    height: 50vh;
+    /* if you have a 70px navbar => height: calc(100vh - 70px); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // padding-left: 40px;
+    margin-bottom: 20px;
+    h2{
+      font-style:italic;
+      font-weight:bold;
+      // margin-top:20px;
+      margin-bottom:30px;
+      font-size:40px;
+    }
+    p {
+      margin-top:20px;
+      padding-left:20px;
+      vertical-align: middle;
+      font-size:22px;
+    }
+
+    h3 {
+      padding-left:30px;
+      font-style: italic;
+      font-weight:bold;
+      margin-top:50px;
+      font-size:40px;
+      vertical-align: middle;
+      // text-decoration: overline;
+      // margin-top:20px;
+    }
+    h3 a {
+      color:#fff;
+      text-decoration:none;
+    }
+
+    h3 a:hover {
+      color:orange;
+    }
+  }
+.container1 {
+  h2.landing_page {
+    text-align: center;
+    font-family: 'ClearSansLightRegular';
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+}
+
+.land_card {
+  margin: 10px 0;
+  text-align: center;
+  p {
+    font-family: 'ClearSansLightRegular';
+   font-weight: normal;
+   font-style: normal;
+    margin-top:5px;
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    h2 {
+      margin-top:30px;
+      padding-left:6px;
+      text-align:center;
+    }
+    p {
+      font-size:16px;
+      padding-left:60px;
+    }
+
+    h3 {
+      padding-left:80px;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    padding-left:20px;
+    h2 {
+      font-size:24px;
+      padding-left:6px;
+      text-align:left;
+    }
+    p {
+      font-size:16px;
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    h3 {
+      padding-left:20px;
+    }
+
+  }
+}
+
+.small {
+  min-width: 70px;
+}
+
+.medium {
+  min-width: 200px;
+}
+
+.large {
+  min-width: 300px;
+}

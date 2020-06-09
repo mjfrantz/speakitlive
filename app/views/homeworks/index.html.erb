@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="table-wrapper">
+    <%= render 'layouts/user_wrapper' %>
+    <%= render 'layouts/user_course_wrapper' %>
+    <%= render 'layouts/teacher_lesson_wrapper' %>
+    <%= render 'layouts/homework_header' %>
+    <%= render 'layouts/student_time_trial_audio', student: current_student %>
+  </div>
+  <div class="table-wrapper-footer">
+    <%= button_tag "Submit Homework", id: 'homework-submit-all', type: :button, class: 'btn-primary' %>
+  </div>
+</div>
+
+<script>
+var homeworkApprovedChecks = document.querySelectorAll('#homework_approved')
+
+$(document).ready(function() {
+  $("#check-all").change(function() {
+  if (this.checked){
+    homeworkApprovedChecks.forEach(function(element) {
+      element.checked = true
+    })
+  }
+  else {
+    homeworkApprovedChecks.forEach(function(element) {
+      element.checked = false
+    })
+  }})
+});
+
+var submitBtns = document.querySelectorAll('.edit_homework .submit-homework')
+// console.log(hwForms);
+$(document).ready(function() {
+  $("#submit-all").change(function() {
+    console.log("clicked")
+  if (this.checked){
+    submitBtns.forEach(function(btn) {
+      btn.click();
+    })
+  }
+  else {
+    $("#submit-all").style.display = 'none';
+  }})
+});
+
+</script>
+
+

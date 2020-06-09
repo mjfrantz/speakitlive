@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="table-wrapper">
+    <%= render 'layouts/user_wrapper' %>
+    <% if teacher_signed_in? %>
+      <%= render 'layouts/teacher_new_course_wrapper' %>
+    <% end %>
+      <div class="course-index-row title-row row">
+        <div class="col-md-1">
+          <h5>Course</h5>
+        </div>
+        <div class="col-md-3 course-index-item course-index-university">
+          <h5>University</h5>
+        </div>
+        <div class="col-md-4 course-index-item course-index-course-name">
+          <h5>Course Name</h5>
+        </div>
+        <div class="col-md-4 course-index-item course-index-course-description">
+          <h5>Course Description</h5>
+        </div>
+      </div>
+
+    <% @courses.each_with_index do | course, i | %>
+      <%= link_to course_path(course) do %>
+        <div class="course-index-row row <%= 'even' if i.even? %>">
+          <div class="col-md-1 course-index-item">
+            <%= i += 1 %>
+          </div>
+          <div class="col-md-3 course-index-item course-index-university">
+            <%= course.school %>
+          </div>
+          <div class="col-md-4 course-index-item course-index-course-name">
+            <%= course.name %>
+          </div>
+          <div class="col-md-4 course-index-item course-index-course-description">
+            <%= course.description %>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>

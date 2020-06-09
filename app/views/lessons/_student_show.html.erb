@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="table-wrapper">
+    <%= render 'layouts/user_wrapper' %>
+    <%= render 'layouts/user_course_wrapper' %>
+    <%= render 'layouts/student_lesson_wrapper'%>
+    <% unless @lesson.student_time_trials(current_student).empty? %>
+      <%= render 'layouts/homework_header' if @lesson.student_time_trials(current_student).first.completed %>
+    <% end %>
+    <%= render 'layouts/student_time_trial_audio', student: current_student %>
+    <%= render 'layouts/time_trial_mistakes', student: current_student %>
+  </div>
+  <% unless @lesson.student_time_trials(current_student).empty? %>
+  <div class="table-wrapper-footer">
+    <%= button_tag "Submit Homework", id: 'homework-submit-all', type: :button, class: 'btn-primary' if @lesson.student_time_trials(current_student).first.completed %>
+  </div>
+  <% end %>
+</div>
+
+<!-- REMEMBER HOMEWORK  -->

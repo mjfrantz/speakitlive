@@ -1,0 +1,102 @@
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="student-show-header">
+        <div class="header-student">
+          <div class="header-student-avatar">
+            <%= cl_image_tag @time_trial.attendance_a.student.photo, class: "avatar" %>
+          </div>
+          <div class="header-student-fullname">
+            <div class="header-student-first-name">
+              <%= @time_trial.attendance_a.student.first_name %>
+            </div>
+            <div class="header-student-last-name">
+              <%= @time_trial.attendance_a.student.last_name.upcase %>
+            </div>
+          </div>
+        </div>
+        <div class="header-student">
+          <div class="header-student-fullname">
+            <div class="header-student-first-name">
+              <%= @time_trial.attendance_b.student.first_name %>
+            </div>
+            <div class="header-student-last-name">
+              <%= @time_trial.attendance_b.student.last_name.upcase %>
+            </div>
+          </div>
+          <div class="header-student-avatar">
+            <%= cl_image_tag @time_trial.attendance_b.student.photo, class: "avatar" %>
+          </div>
+        </div>
+      </div>
+      <div class="student-show-subheader">
+        <%= @time_trial.lesson.learning_goal %> for <span id="seconds-goal"><%= @time_trial.lesson.time_goal %></span> seconds
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div id="controls">
+        <button id="recordButton">
+          <i class="fas fa-microphone"></i>
+        </button>
+<!--        <button class="btn btn-primary" id="pauseButton" disabled>Pause</button> -->
+        <button id="stopButton" type="button" style="display:none" class="clicked">
+          <i class="fas fa-stop"></i>
+        </button>
+        <%#= button_tag type: "button", id: "stopButton" do %>
+
+        <%# end %>
+      </div>
+      <!-- <div id="formats"></div>
+        <p> When you have finished talking, push stop and submit your recording. </p> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <!-- <h3>Recordings</h3> -->
+    <ol id="recordingsList">
+    </ol>
+    <div id="loading-spinner" style="justify-content:center;display:none;text-align:center">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+    <div style="display:flex;justify-content:center; margin-top:15px">
+      <%= button_to reset_trial_path(@time_trial), method: :patch, class: "restartButton", style: "display:none", id: "restart-recording", data: { confirm: 'Start from beginning?' } do %>
+      <%#= button_to lesson_time_trial_path(@time_trial.lesson, @time_trial), method: :get, style: "display:none", id: "restart-recording", data: { confirm: 'Start from beginning?' } do %>
+        Start again <i class="fas fa-redo"></i>
+      <% end %>
+    </div>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+
+    <%= simple_form_for(@time_trial, url: update_audio_path)  do |f| %>
+      <%= f.input :audio, wrapper_html: { class: 'hide' } %>
+    <% end %>
+    </div>
+    <%= simple_form_for(@time_trial, as: :time_trial, method: :post, url: time_trial_start_path, remote: true, html: { id: 'time-trial-start' }) do |f| %>
+      <%= button_tag "", style: "display:none;" %>
+    <% end %>
+    <%= simple_form_for(@time_trial, as: :time_trial, method: :post, url: time_trial_stop_path, remote: true, html: { id: 'time-trial-stop' }) do |f| %>
+      <%= button_tag "", style: "display:none;" %>
+    <% end %>
+    <%#= button_to reset_trial_path(@time_trial), method: :patch, class: "restartButton" do %>
+      <%#= button_tag "", style: "display:none;" %>
+    <%# end %>
+  </div>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    App['time_trial_<%= @time_trial.id %>'] =
+      App.cable.subscriptions.create(
+        { channel: 'TimeTrialsChannel', time_trial_id: <%= @time_trial.id %> },
+        { received: (data) => {
+          console.log(data)
+          if (data.recording_restarted === true) {
+            location.reload();
+          }
+        }}
+    )
+  </script>
+<% end %>
+

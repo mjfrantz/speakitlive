@@ -1,0 +1,96 @@
+<div class="navbar-speakit_live">
+  <!-- Logo -->
+  <a href="/" class="navbar-speakit_live-brand">
+    <%= image_tag "speak_it_logo.png", alt:"speakit_live_logo"%>
+  </a>
+
+  <!-- Right Navigation -->
+    <div class="navbar-speakit_live-right hidden-xs hidden-sm">
+      <% if teacher_signed_in? %>
+
+        <!-- When Teacher is Signed In -->
+        <%= link_to "Courses", courses_path, class: "navbar-speakit_live-item" %>
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <%= image_tag 'teacher_icon.png', class: "navbar-icon dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><%= link_to "Log Out", destroy_teacher_session_path, method: :delete, class: "navbar-speakit_live-item navbar-speakit_live-link" %></li>
+            </ul>
+          </div>
+        </div>
+
+      <% elsif student_signed_in? %>
+
+        <!-- When Student is Signed In -->
+        <%= link_to "Courses", courses_path, class: "navbar-speakit_live-item" %>
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <%= image_tag 'student_icon.png', class: "navbar-icon dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><%= link_to "Log Out", destroy_student_session_path, method: :delete, class: "navbar-speakit_live-item navbar-speakit_live-link" %></li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+
+        <!-- Student Sign In -->
+        <%= link_to new_student_session_path, class: "navbar-icon-link" do  %>
+           <%= image_tag 'student_icon.png', class: "navbar-icon"%>
+          <small>Student</small>
+        <% end %>
+
+        <!-- Teacher Sign In -->
+        <%= link_to new_teacher_session_path, class: "navbar-icon-link" do %>
+          <%= image_tag 'teacher_icon.png', class: "navbar-icon"%>
+          <small>Teacher</small>
+        <% end %>
+
+
+
+      <% end %>
+
+
+
+
+
+
+
+
+
+      <!-- Profile picture with dropdown list -->
+
+    </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-speakit_live-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-speakit_live-dropdown-menu">
+
+        <!-- Teacher Sign In or Sign Up -->
+        <% if !student_signed_in? && !teacher_signed_in? %>
+          <li><%= link_to "Teacher Sign In", new_teacher_session_path %></li>
+          <li><%= link_to "Teacher Sign Up", new_teacher_registration_path %></a></li>
+        <% end %>
+
+        <!-- Student Sign In or Sign Up -->
+        <% if !student_signed_in? && !teacher_signed_in? %>
+          <li><%= link_to "Student Sign In", new_student_session_path %></li>
+          <li><%= link_to "Student Sign Up", new_student_registration_path %></li>
+        <% end %>
+
+        <!-- Teacher is Signed In -->
+        <% if teacher_signed_in? %>
+          <li><%= link_to "Courses", courses_path %></li>
+          <li><%= link_to "Teacher Sign Out", destroy_teacher_session_path, method: :delete %></li>
+        <% end %>
+
+        <% if student_signed_in? %>
+          <li><%= link_to "Courses", courses_path %></li>
+          <li><%= link_to "Student Sign Out", destroy_student_session_path, method: :delete %></li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</div>

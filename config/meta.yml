@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "speakitlive"
+meta_title: "speakitlive - Innovative Communication Tool"
+meta_description: " Improving Speaking Skills in the English Classroom"
+meta_image: "chalkboard1.png" # should exist in `app/assets/images/`
+twitter_account: "@LeWagonTokyo"   # required for Twitter Cards

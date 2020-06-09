@@ -1,0 +1,84 @@
+.card-student {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+        height: 90px;
+        background: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        font-size: 23px;
+}
+
+#card-feedback h3 {
+}
+
+
+.course-card {
+  background-image: url('blackboard_image1.png');
+}
+
+.course-card a {
+  color: white;
+  background-color: rgba(255,255,255,0.6);
+}
+
+
+.card {
+  height: 250px;
+  width: 330px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.card {
+  .btn{
+    margin-top: 180px;
+  }
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category {
+  position: absolute;
+  top: 56px;
+  left: 47px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 80px;
+  left: 50px;
+}
+.card-description h2 {
+  font-size: 18px;
+}
+.card-description p {
+  font-size: 15px;
+  opacity: 0.9;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}

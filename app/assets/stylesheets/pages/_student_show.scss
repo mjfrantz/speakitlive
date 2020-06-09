@@ -1,0 +1,67 @@
+.student-show-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: -webkit-linear-gradient(left, #71B280, #134E5E);
+  background: -o-linear-gradient(left, #71B280, #134E5E);
+  background: linear-gradient(to right, #71B280, #134E5E);
+  // background-color: $blackboard;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.header-student {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+}
+
+.header-student:first-child {
+  justify-content: flex-start;
+}
+
+.header-student:last-child {
+  justify-content: flex-end;
+}
+
+.header-student-fullname {
+  display:flex;
+  flex-direction: column;
+  color: white;
+}
+
+.header-student-first-name {
+  font-weight: lighter;
+}
+
+.header-student-avatar:last-child {
+  img {
+    margin: 0 0 0 10px !important;
+  }
+}
+
+.student-show-subheader {
+  text-align: center;
+  background-color: #F8F8FF;
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+#controls {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 5em;
+  padding: 30px 0;
+}
+
+
+#recordingsList {
+  list-style-type: none;
+  margin-top: 15px;
+  padding: 0;
+  li {
+    padding: 0;
+  }
+}

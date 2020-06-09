@@ -1,0 +1,9 @@
+
+<div class="wrapper">
+<% if teacher_signed_in? && @lesson.completed == false %>
+  <%= render "teacher_show" %>
+<% elsif student_signed_in? %>
+   <%= render "student_show" %>
+<% end %>
+</div>
+
