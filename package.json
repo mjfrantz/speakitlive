@@ -8,7 +8,7 @@
     "cloudinary-jquery-file-upload": "^2.6.2",
     "easytimer": "^1.1.1",
     "easytimer.js": "^3.0.1",
-    "jquery": "^3.3.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
